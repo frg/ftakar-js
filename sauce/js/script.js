@@ -67,19 +67,27 @@
             };
 
             var key = {
+                // this key generations stuff can and should be improved
+                // dont just use delimietrs -- use escaping "escape(String here)"
                 create: function(element) {
                     for (var i = 0; i < settings.idAttribs.length; i++) {
                         // check if attribute has value
                         if ($(element).attr(settings.idAttribs[i]) != null) {
-                            return settings.idAttribs[i] + '~~' + $(element).attr(settings.idAttribs[i]);
+                            // escape strings
+                            return escape(settings.idAttribs[i]) + '~' + escape($(element).attr(settings.idAttribs[i]));
                         }
                     }
 
                     return false;
                 },
                 get: function(key) {
-                    // split on first ||
-                    return key.split(/~~(.+)?/);
+                    // split
+                    var a = key.split(/~(.+)?/);
+                    // unescape
+                    for (var i = 0; i < a.length; i++) {
+                        a[i] = unescape(a[i]);
+                    }
+                    return a;
                 }
             };
 
