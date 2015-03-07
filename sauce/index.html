@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Ftakar</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <form>
+            First name:<br>
+            <input type="text" name="firstname" id="sqphy">
+            <br>
+            Last name:<br>
+            <input type="text" name="lastname" id="llnhq">
+            <br>
+            User name:<br>
+            <input type="text" name="username" id="zxbnh">
+            <br>
+            User password:<br>
+            <input type="password" name="psw" id="pyyex">
+            <br>
+            <input type="radio" name="sex" value="male" checked="" id="yzath">Male
+            <input type="radio" name="sex" value="female" id="ktpwl">Female
+            <br>
+            <input type="checkbox" name="vehicle" value="Bike" id="atrpf">I have a bike
+            <input type="checkbox" name="vehicle" value="Car" id="sivcy">I have a car
+            <br>
+            <input type="button" onclick="alert('Hello World!')" value="Click Me!" id="thvhc">
+            <br>
+            <input type="number" name="quantity" min="1" max="5" id="ubbts">
+            <br>
+            <input type="number" name="points" min="0" max="100" step="10" value="30" id="owixk">
+            <br>
+            <input type="date" name="bday" id="mdqgm">
+            <br>
+            <input type="color" name="favcolor" id="ljwon">
+            <br>
+            <input type="range" name="points" min="0" max="10" id="mujqd">
+            <br>
+            <input type="month" name="bdaymonth" id="aipdz">
+            <br>
+            <input type="week" name="week_year" id="hkelm">
+            <br>
+            <input type="time" name="usr_time" id="hvhjb">
+            <br>
+            <input type="datetime" name="bdaytime" id="kawit">
+            <br>
+            <input type="datetime-local" name="bdaytime" id="afrnl">
+            <br>
+            <input type="email" name="email" id="cwnid">
+            <br>
+            <input type="search" name="googlesearch" id="dbvoe">
+            <br>
+            <input type="tel" name="usrtel" id="hfusu">
+            <br>
+            <input type="url" name="homepage" id="lwluw">
+            <br>
+            <input type="submit" value="Submit" id="kiibp">
+        </form>
+        
+        <script src="js/jquery-1.11.2.min.js"></script>
+        <script src="js/script.js"></script>
+        <script>
+            $(document).ready(function(){
+                /*$('input').each(function( index ) {
+                    $(this).attr('id', Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5));
+                });*/
+
+                $('input').ftakar({
+                    // saveOnInterval: 200,
+                    saveOnInterval: false,
+                    saveOnChange: true,
+                    clearOnSubmit: true,
+                    expireAfterSeconds: false,
+                    beforeSave: function(){},
+                    onSave: function(){},
+                    beforeLoad: function(){},
+                    onLoad: function(){},
+                    beforeClear: function(){},
+                    onClear: function(){}
+                });
+            });                     
+        </script>
+    </body>
+</html>
