@@ -47,7 +47,6 @@ $('input').ftakar({
 ```
 
 ### API
-___
 
 ### Options
 Possible options:
