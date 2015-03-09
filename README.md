@@ -4,6 +4,7 @@
 ## Version
 0.1.14
 
+##
 Ftakar is a small jQuery plugin that I decided to implement as extra functionality to my projects. Even though the plugin idea is simple it adds a considerable amount to the traditional html forms.
 
 The plugin is in its very early stages of implementation therefore here's my ToDo list up front.
@@ -21,7 +22,7 @@ Until another major version is committed script file is within 'sauce/js/script.
 
 ##  Usage
 1. Import jQuery
-~~2. Import ftakar-js.js~~
+2. ~~Import ftakar-js.js~~
 2. *For the moment please import as instructed in **Installation***
 3. '$('input').ftakar();'
 
@@ -65,11 +66,15 @@ Possible options:
 ### Browsers
 As long as the browser is compatibile with HTML5 Storage API, plugin works fine.
 
-* Chrome 4+
-* Firefox 3.5+
-* Safary 4+
-* Opera 10.5+
-* IE 8+
+* Chrome 31+
+* Firefox 35+
+* Safari 7.1+
+* Opera 27+
+* IE 11+
+* iOS Safari 7.1+
+* Opera Mini (Not Supported)
+* Android Browser 37+
+* Chrome for Android 40+
 
 ## License
 MIT
