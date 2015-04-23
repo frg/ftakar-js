@@ -10,7 +10,7 @@ Ftakar is a small jQuery plugin that I decided to implement as extra functionali
 The plugin is in its very early stages of implementation therefore here's my ToDo list up front.
 
 ## Todo
- - Write Tests
+ - **TEST**
  - Fix interval save
  - Implement checkbox save
  - Implement radio button save
@@ -18,11 +18,11 @@ The plugin is in its very early stages of implementation therefore here's my ToD
  - Save forms within url domains
 
 ##  Installation
-Until another major version is committed script file is within 'sauce/js/script.js'
+Until a major version is committed script file is within 'examples/js/ftakar.js'
 
 ##  Usage
 1. Import jQuery
-2. ~~Import ftakar-js.js~~
+2. ~~Import ftakar-js.js from the sauce folder~~
 2. *For the moment please import as instructed in **Installation***
 3. '$('input').ftakar();'
 
