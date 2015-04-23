@@ -15,7 +15,7 @@ The plugin is in its very early stages of implementation therefore here's my ToD
  - Implement checkbox save
  - Implement radio button save
  - Save data in form domains
- - Save forms within url domains
+ - Save forms within uri namespace
 
 ##  Installation
 Until a major version is committed script file is within 'examples/js/ftakar.js'
@@ -23,7 +23,7 @@ Until a major version is committed script file is within 'examples/js/ftakar.js'
 ##  Usage
 1. Import jQuery
 2. ~~Import ftakar-js.js from the sauce folder~~
-2. *For the moment please import as instructed in **Installation***
+2. *For the moment please import as instructed in **Installation*
 3. '$('input').ftakar();'
 
 Example:
