@@ -3,7 +3,11 @@
     <head>
         <meta charset="utf-8">
         <title>Ftakar</title>
-        <link rel="stylesheet" href="css/style.css">
+        <style media="screen">
+          input {
+            margin-bottom: 10px;
+          }
+        </style>
     </head>
     <body>
 
@@ -25,8 +29,6 @@
             <br>
             <input type="checkbox" name="vehicle" value="Bike" id="atrpf">I have a bike
             <input type="checkbox" name="vehicle" value="Car" id="sivcy">I have a car
-            <br>
-            <input type="button" onclick="alert('Hello World!')" value="Click Me!" id="thvhc">
             <br>
             <input type="number" name="quantity" min="1" max="5" id="ubbts">
             <br>
@@ -63,13 +65,16 @@
         <script src="js/ftakar.js"></script>
         <script>
             $(document).ready(function(){
-                /*$('input').each(function( index ) {
+                /*// GENERATE RANDOM ID's
+                $('input').each(function( index ) {
                     $(this).attr('id', Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5));
                 });*/
 
                 $('input').ftakar({
+                    savedDataName: "ftakar__" + escape(document.location.href),
                     saveOnChange: true,
-                    clearOnSubmit: true
+                    clearOnSubmit: true,
+                    expireInMs: 1000
                 });
             });
         </script>

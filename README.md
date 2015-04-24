@@ -15,7 +15,7 @@ The plugin is in its very early stages of implementation therefore here's my ToD
  - Implement checkbox save
  - Implement radio button save
  - Save data in form domains
- - Save forms within uri namespace
+ - ~~Save forms within uri namespace~~ (can be implemented using the uri in the "savedDataName" setting)
 
 ##  Installation
 Until a major version is committed script file is within 'examples/js/ftakar.js'
