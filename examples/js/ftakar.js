@@ -1,6 +1,6 @@
 /**
- * Created by Jean Farrugia on 07/03/2015 (dd/mm/yyyy).
- * "ftakar" is the equivalent of "remember" in Maltese.
+ * [Created by] Jean Farrugia on 07/03/2015 (dd/mm/yyyy).
+ * [Definition] "ftakar" is the equivalent of "remember" in Maltese.
  */
 'use strict';
 (function (factory) {
@@ -25,6 +25,7 @@
             }
         };
 
+        // check for loacl storage support
         if (supports_html5_storage()) {
             var $this = $(this),
             store = {
@@ -41,7 +42,6 @@
             },
             key = {
                 // this key generations stuff can and should be improved
-                // dont just use delimietrs -- use escaping "escape(String here)"
                 create: function(element) {
                     for (var i = 0; i < settings.idAttribs.length; i++) {
                         // check if attribute has value
@@ -68,17 +68,29 @@
                     if (element) {
                         // get data
                         var data = store.get();
-                        
+
                         var elementId = key.create(element);
                         if (elementId) {
                             settings.beforeSave.call();
 
-                            var now = new Date().getMilliseconds();
-                            var expires = (settings.expiresInMs) ? parseInt(now.toString()) + settings.expiresInMs : null;
+                            var now = new Date().getTime();
+                            var expires = (settings.expireInMs) ? parseInt(now.toString()) + settings.expireInMs : null;
 
-                            data[elementId] = { 
+                            var toSave = "";
+                            switch ($(element).attr('type')){
+                              case 'radio':
+                              case 'checkbox':
+                                toSave = $(element).prop('checked');
+                                break;
+                              case 'select':
+                              case 'input':
+                              default:
+                                toSave = $(element).val();
+                            }
+
+                            data[elementId] = {
                                                 expires: expires,
-                                                val: $(element).val()
+                                                val: toSave
                                             };
 
                             // save data
@@ -94,7 +106,7 @@
                     if (element) {
                         // get data
                         var data = store.get();
-                        
+
                         var elementId = key.create(element);
                         if (elementId) {
                             settings.beforeDelete.call();
@@ -112,7 +124,7 @@
                 },
                 hasExpired: function(data) {
                     // check if element has expired
-                    var now = new Date().getMilliseconds();;
+                    var now = new Date().getTime();
                     return (data.expires) ? (now > data.expires) : false;
                 }
             };
@@ -134,7 +146,7 @@
             }
 
             if (settings.saveOnInterval && !isNaN(settings.saveOnInterval) && parseInt(settings.saveOnInterval) > 0) {
-                setInterval(function(){ 
+                setInterval(function(){
                     // save input
                     elementData.save(this);
                 }, parseInt(settings.saveOnInterval));
@@ -151,7 +163,22 @@
                         // get key
                         var id = key.get(k);
                         // find respective element & set saved data
-                        $('[' + id[0] + '="' + id[1] + '"]').val(data[k].val);
+                        var $element = $('[' + id[0] + '="' + id[1] + '"]');
+
+                        switch ($element.attr('type')){
+                          case 'radio':
+                          case 'checkbox':
+                            $element.prop('checked', data[k].val);
+                            break;
+                          case 'select':
+                            $element.find("option").filter(function() {
+                                // may want to use $.trim in here
+                                return $(this).text() == data[k].val;
+                            }).attr('selected', true);
+                            break;
+                          default:
+                            $element.val(data[k].val);
+                        }
                     } else {
                         // if data expired.. delete
                         delete data[key];
@@ -160,20 +187,20 @@
 
                 // save data.. in case some keys have been deleted
                 store.set(data);
-                
+
                 settings.onLoad.call();
             });
 
             if (settings.saveOnChange) {
-                this.change(function(){
-                    elementData.save(this);
-                });
-            } 
+              this.change(function(){
+                  elementData.save(this);
+              });
+            }
         }
 
         return this;
     }
-    
+
     // defaults may be overridden
     $.fn.ftakar.defaults = {
         savedDataName: 'FTAKAR',
@@ -182,9 +209,9 @@
         saveOnInterval: false, // TODO
         saveOnChange: true,
         clearOnSubmit: true,
-        expireInMs: false, // TODO
+        expireInMs: false,
         // priority by order of attribute
-        idAttribs: ['id', 'data-ftakar'], 
+        idAttribs: ['id', 'name', 'data-ftakar'],
         beforeSave: function(){ console.info('FTAKAR: data is being saved', $(this)) },
         // $(document).trigger( "ftakar__beforeSave" ); // TODO
         onSave: function(){ console.info('FTAKAR: data saved', $(this)) },

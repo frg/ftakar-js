@@ -41,9 +41,11 @@ Example:
 ```
 
 ```sh
-$('input').ftakar({
-    saveOnChange: true,
-    clearOnSubmit: true
+$('input, select').not('input[type="submit"]').ftakar({
+  savedDataName: "ftakar__" + escape(document.location.href),
+  saveOnChange: true,
+  clearOnSubmit: true,
+  expireInMs: 3600000 /* 1 hour */
 });
 ```
 
@@ -54,6 +56,8 @@ Possible options:
 * `saveOnChange` – save when element has changed as defined by the jQuery "change" event – *boolean*: `true`
 * `clearOnSubmit` – when the closest parent form is submitted the element data will be deleted – *boolean*: `true`
 * `idAttribs` - when defined the plugin will search for the the first valid id before going onto the next - *array*: `['id', 'name', 'data-ftakar']`
+* `expireInMs` - ms to save data for element - *int* / *boolean*: `false`
+
 * `beforeSave` – function called before save of every element – *function*: `function(){}`
 * `onSave` – function called after save of every element – *function*: `function(){}`
 * `beforeDelete` – function called before delete of every element – *function*: `function(){}`

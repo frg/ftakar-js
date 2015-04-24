@@ -77,11 +77,11 @@
                     $(this).attr('id', Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5));
                 });*/
 
-                $('input, select').ftakar({
+                $('input, select').not('input[type="submit"]').ftakar({
                     savedDataName: "ftakar__" + escape(document.location.href),
                     saveOnChange: true,
                     clearOnSubmit: true,
-                    expireInMs: 5000
+                    expireInMs: 3600000
                 });
             });
         </script>
