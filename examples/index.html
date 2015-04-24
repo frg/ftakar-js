@@ -82,8 +82,8 @@
 
                 $('input, select').not('input[type="submit"]').ftakar({
                     savedDataName: "ftakar__" + escape(document.location.href),
-                    saveOnChange: false,
-                    saveOnInterval: 5000,
+                    saveOnChange: true,
+                    // saveOnInterval: 5000,
                     clearOnSubmit: true,
                     expireInMs: 3600000
                 });
