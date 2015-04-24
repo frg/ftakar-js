@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Ftakar</title>
         <style media="screen">
-          input {
+          input, select {
             margin-bottom: 10px;
           }
         </style>
@@ -23,6 +23,13 @@
             <br>
             User password:<br>
             <input type="password" name="psw" id="pyyex">
+            <br>
+            <select name="dropdown" id="khupoa">
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select>
             <br>
             <input type="radio" name="sex" value="male" checked="" id="yzath">Male
             <input type="radio" name="sex" value="female" id="ktpwl">Female
@@ -74,7 +81,7 @@
                     savedDataName: "ftakar__" + escape(document.location.href),
                     saveOnChange: true,
                     clearOnSubmit: true,
-                    expireInMs: 1000
+                    expireInMs: 5000
                 });
             });
         </script>
