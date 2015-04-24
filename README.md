@@ -16,8 +16,6 @@ Ftakar is a small jQuery plugin that I decided to implement as extra functionali
  - ~~Save forms within uri namespace~~ (can be implemented using the uri in the "savedDataName" setting)
 
 ##  Installation
-Import jQuery 1.11.2 or greater
-Import "sauce/ftakar-1.0.min.js"
 
 ##  Usage
 1. Import jQuery 1.11.2 or greater
