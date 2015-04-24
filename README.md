@@ -15,7 +15,7 @@ The plugin is in its very early stages of implementation therefore here's my ToD
  - ~~Fix data expires~~
  - ~~Implement checkbox save~~
  - ~~Implement radio button save~~
- - Implement select save
+ - ~~Implement select save~~
  - ~~Save forms within uri namespace~~ (can be implemented using the uri in the "savedDataName" setting)
 
 ##  Installation
@@ -37,7 +37,6 @@ Example:
     <input type="checkbox" name="vehicle" value="Car" id="sivcy">I have a car
     <input type="date" name="bday" id="mdqgm"
     <input type="color" name="favcolor" id="ljwon">
-    <input type="submit" value="Submit" id="kiibp">
 </form>
 ```
 
