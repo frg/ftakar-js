@@ -13,12 +13,10 @@ Ftakar is a small jQuery plugin that I decided to implement as extra functionali
  - ~~Implement checkbox save~~
  - ~~Implement radio button save~~
  - ~~Implement select save~~
- - ~~Save forms within uri namespace~~ (can be implemented using the uri in the "savedDataName" setting)
+ - ~~Save forms within uri namespace~~ (can be implemented using the uri in the "savedDataName" setting - { savedDataName: escape( document.location.href ) })
 
-##  Installation
-
-##  Usage
-1. Import jQuery 1.11.2 or greater
+##  Usage & Installation
+1. Import jQuery-1.11.2 or greater
 2. Import "sauce/ftakar-1.0.min.js"
 3. '$('input').ftakar();'
 
