@@ -8,6 +8,7 @@ Ftakar is a small jQuery plugin that I decided to implement as extra functionali
 
 ## Todo
  - **TEST**
+ - Write better instructions
  - ~~Implement interval save~~
  - ~~Implement data expires~~
  - ~~Implement checkbox save~~
