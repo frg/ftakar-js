@@ -1,7 +1,7 @@
 # Ftakar [![Code Climate](https://codeclimate.com/github/frg/ftakar-js/badges/gpa.svg)](https://codeclimate.com/github/frg/ftakar-js)
 ### A jQuery plugin that saves element data using Local Storage
 
-Ftakar is a small jQuery plugin that I decided to implement as extra functionality to my projects. Even though the plugin idea is simple it adds a considerable amount to the traditional html forms.
+Ftakar is a small **jQuery** plugin that I decided to implement as extra functionality to my projects. Even though the plugin idea is simple it adds a considerable amount to the traditional html forms.
 
 ## Version
 1.0
