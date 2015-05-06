@@ -47,9 +47,9 @@
             create: function(element) {
                 for (var i = 0; i < settings.idAttribs.length; i++) {
                     // check if attribute has value
-                    if ($(element).attr(settings.idAttribs[i]) = null) {
+                    if ($(element).attr(settings.idAttribs[i]) !== null) {
                         // escape strings
-                        return settings.idAttribs[i] + '~' + $(element).attr(settings.idAttribs[i]);
+                        return encodeURI(settings.idAttribs[i]) + " " + encodeURI($(element).attr( settings.idAttribs[i] ));
                     }
                 }
 
@@ -57,7 +57,12 @@
             },
             get: function(key) {
                 // split
-                return key.split(/~(.+)?/);
+                var array =  key.split(" ");
+                for (var index = 0; index < array.length; index++) {
+                    // escape strings
+                    array[index] = decodeURI(array[index]);
+                }
+                return array;
             }
         },
         elementData = {
@@ -213,21 +218,21 @@
     expireInMs: false,
     // priority by order of attribute
     idAttribs: ['id', 'name', 'data-ftakar'],
-    beforeSave: function(){ console.info('FTAKAR: data is being saved', this); },
+    beforeSave: function(){ /*console.info('FTAKAR: data is being saved', this);*/ },
     // $(document).trigger( "ftakar__beforeSave" ); // TODO
-    onSave: function(){ console.info('FTAKAR: data saved', this); },
+    onSave: function(){ /*console.info('FTAKAR: data saved', this);*/ },
     // $(document).trigger( "ftakar__onSave" ); // TODO
-    beforeLoad: function(){ console.info('FTAKAR: data is being loaded'); },
+    beforeLoad: function(){ /*console.info('FTAKAR: data is being loaded');*/ },
     // $(document).trigger( "ftakar__beforeLoad" ); // TODO
-    onLoad: function(){ console.info('FTAKAR: data has loaded'); },
+    onLoad: function(){ /*console.info('FTAKAR: data has loaded');*/ },
     // $(document).trigger( "ftakar__onLoad" ); // TODO
-    beforeDelete: function(){ console.info('FTAKAR: element data is going to be deleted', this); },
+    beforeDelete: function(){ /*console.info('FTAKAR: element data is going to be deleted', this);*/ },
     // $(document).trigger( "ftakar__beforeDelete" ); // TODO
-    onDelete: function(){ console.info('FTAKAR: element data deleted', this); },
+    onDelete: function(){ /*console.info('FTAKAR: element data deleted', this);*/ },
     // $(document).trigger( "ftakar__onDelete" ); // TODO
-    beforeClear: function(){ console.info('FTAKAR: data is going to be cleared'); },
+    beforeClear: function(){ /*console.info('FTAKAR: data is going to be cleared');*/ },
     // $(document).trigger( "ftakar__beforeClear" ); // TODO
-    onClear: function(){ console.info('FTAKAR: data cleared'); }
+    onClear: function(){ /*console.info('FTAKAR: data cleared');*/ }
     // $(document).trigger( "ftakar__onClear" ); // TODO
   };
-});
+}( jQuery ));
