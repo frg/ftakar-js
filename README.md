@@ -18,7 +18,7 @@ Ftakar is a small **jQuery** plugin that I decided to implement as extra functio
 
 ##  Usage & Installation
 1. Import jQuery-1.11.2 or greater
-2. Import "sauce/ftakar-1.0.min.js"
+2. Import "sauce/ftakar-*version*.min.js"
 3. '$('input').ftakar();'
 
 Example:
@@ -44,7 +44,7 @@ Example:
 
 ```sh
 $('input, select').not('input[type="submit"]').ftakar({
-  savedDataName: "ftakar__" + escape(document.location.href),
+  savedDataName: "ftakar__" + encodeURI(document.location.href),
   saveOnChange: true,
   clearOnSubmit: true,
   expireInMs: 3600000 /* 1 hour */
