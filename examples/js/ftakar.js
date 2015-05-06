@@ -2,8 +2,9 @@
  * [Created by] Jean Farrugia on 07/03/2015 (dd/mm/yyyy).
  * [Definition] "ftakar" is the equivalent of "remember" in Maltese.
  */
-'use strict';
 (function($) {
+    'use strict';
+
   // https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval#The_.22this.22_problem
   var __nativeSI__ = window.setInterval;
   var setInterval = function (vCallback, nDelay /*, argumentToPass1, argumentToPass2, etc. */) {
@@ -200,7 +201,7 @@
     }
 
     return this;
-  }
+  };
 
   // defaults may be overridden
   $.fn.ftakar.defaults = {
