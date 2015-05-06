@@ -17,6 +17,7 @@
  * DEALINGS IN THE SOFTWARE.
  * 
  */
+ 
 (function($) {
     'use strict';
 

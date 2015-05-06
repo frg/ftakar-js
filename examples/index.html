@@ -81,6 +81,7 @@
                 });*/
 
                 $('input, select').not('input[type="submit"]').ftakar({
+                    savedDataName: "ftakar__" + encodeURI(document.location.href),
                     saveOnChange: true,
                     // saveOnInterval: 5000,
                     clearOnSubmit: true,
