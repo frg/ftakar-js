@@ -9,6 +9,9 @@ Ftakar is a small **jQuery** plugin that I decided to implement as extra functio
 ## Todo
  - **TEST**
  - Write better instructions
+ - Trigger Save
+ - Trigger Load
+ - Trigger Delete
  - ~~Implement interval save~~
  - ~~Implement data expires~~
  - ~~Implement checkbox save~~
