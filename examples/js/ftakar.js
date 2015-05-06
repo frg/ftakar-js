@@ -3,15 +3,7 @@
  * [Definition] "ftakar" is the equivalent of "remember" in Maltese.
  */
 'use strict';
-(function (factory) {
-    // If in an AMD environment, define() our module, else use the
-    // jQuery global.
-    if (typeof define === 'function' && define.amd) {
-        define(['jquery'], factory);
-    } else {
-        factory(jQuery);
-    }
-}(function($) {
+(function($) {
   // https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval#The_.22this.22_problem
   var __nativeSI__ = window.setInterval;
   var setInterval = function (vCallback, nDelay /*, argumentToPass1, argumentToPass2, etc. */) {
@@ -27,7 +19,7 @@
     supports_html5_storage = function () {
         // check if browser supports local storage
         try {
-            return 'localStorage' in window && window['localStorage'] !== null;
+            return 'localStorage' in window && window.localStorage !== null;
         } catch (e) {
             // console.info('FTAKAR: html5 storage not supported.');
             return false;
@@ -40,7 +32,7 @@
         store = {
             get: function() {
                 var a = JSON.parse(localStorage.getItem(settings.savedDataName));
-                return (typeof(a) === 'object' && a != null) ? a : {};
+                return (typeof(a) === 'object' && a !== null) ? a : {};
             },
             set: function(data) {
                 localStorage.setItem(settings.savedDataName, JSON.stringify(data));
@@ -54,9 +46,9 @@
             create: function(element) {
                 for (var i = 0; i < settings.idAttribs.length; i++) {
                     // check if attribute has value
-                    if ($(element).attr(settings.idAttribs[i]) != null) {
+                    if ($(element).attr(settings.idAttribs[i]) = null) {
                         // escape strings
-                        return escape(settings.idAttribs[i]) + '~' + escape($(element).attr(settings.idAttribs[i]));
+                        return settings.idAttribs[i] + '~' + $(element).attr(settings.idAttribs[i]);
                     }
                 }
 
@@ -64,12 +56,7 @@
             },
             get: function(key) {
                 // split
-                var a = key.split(/~(.+)?/);
-                // unescape
-                for (var i = 0; i < a.length; i++) {
-                    a[i] = unescape(a[i]);
-                }
-                return a;
+                return key.split(/~(.+)?/);
             }
         },
         elementData = {
@@ -91,8 +78,8 @@
                           case 'checkbox':
                             toSave = $(element).prop('checked');
                             break;
-                          case 'select':
-                          case 'input':
+                          /*case 'select':
+                          case 'input':*/
                           default:
                             toSave = $(element).val();
                         }
@@ -147,7 +134,7 @@
                 .submit(function(e){
                     e.preventDefault();
                     // when closest form is submitted
-                    $this.each(function(index, element){
+                    $this.each(function(){
                         // delete element data
                         elementData.destroy(this);
                     });
@@ -187,7 +174,7 @@
                       case 'select':
                         $element.find("option").filter(function() {
                             // may want to use $.trim in here
-                            return $(this).text() == data[k].val;
+                            return $(this).text() === data[k].val;
                         }).attr('selected', true);
                         break;
                       default:
@@ -225,21 +212,21 @@
     expireInMs: false,
     // priority by order of attribute
     idAttribs: ['id', 'name', 'data-ftakar'],
-    beforeSave: function(){ console.info('FTAKAR: data is being saved', $(this)) },
+    beforeSave: function(){ console.info('FTAKAR: data is being saved', this); },
     // $(document).trigger( "ftakar__beforeSave" ); // TODO
-    onSave: function(){ console.info('FTAKAR: data saved', $(this)) },
+    onSave: function(){ console.info('FTAKAR: data saved', this); },
     // $(document).trigger( "ftakar__onSave" ); // TODO
-    beforeLoad: function(){ console.info('FTAKAR: data is being loaded') },
+    beforeLoad: function(){ console.info('FTAKAR: data is being loaded'); },
     // $(document).trigger( "ftakar__beforeLoad" ); // TODO
-    onLoad: function(){ console.info('FTAKAR: data has loaded') },
+    onLoad: function(){ console.info('FTAKAR: data has loaded'); },
     // $(document).trigger( "ftakar__onLoad" ); // TODO
-    beforeDelete: function(){ console.info('FTAKAR: element data is going to be deleted', $(this)) },
+    beforeDelete: function(){ console.info('FTAKAR: element data is going to be deleted', this); },
     // $(document).trigger( "ftakar__beforeDelete" ); // TODO
-    onDelete: function(){ console.info('FTAKAR: element data deleted', $(this)) },
+    onDelete: function(){ console.info('FTAKAR: element data deleted', this); },
     // $(document).trigger( "ftakar__onDelete" ); // TODO
-    beforeClear: function(){ console.info('FTAKAR: data is going to be cleared') },
+    beforeClear: function(){ console.info('FTAKAR: data is going to be cleared'); },
     // $(document).trigger( "ftakar__beforeClear" ); // TODO
-    onClear: function(){ console.info('FTAKAR: data cleared') }
+    onClear: function(){ console.info('FTAKAR: data cleared'); }
     // $(document).trigger( "ftakar__onClear" ); // TODO
   };
-}));
+});
