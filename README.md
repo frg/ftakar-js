@@ -4,7 +4,7 @@
 Ftakar is a small **jQuery** plugin that I decided to implement as extra functionality to my projects. Even though the plugin idea is simple it adds a considerable amount to the traditional html forms.
 
 ## Version
-1.0
+1.0.1
 
 ## Todo
  - **TEST**
