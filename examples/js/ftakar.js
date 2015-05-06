@@ -63,7 +63,7 @@
             create: function(element) {
                 for (var i = 0; i < settings.idAttribs.length; i++) {
                     // check if attribute has value
-                    if ($(element).attr(settings.idAttribs[i]) !== null) {
+                    if ($(element).attr(settings.idAttribs[i]) !== undefined) {
                         // escape strings
                         return encodeURI(settings.idAttribs[i]) + " " + encodeURI($(element).attr( settings.idAttribs[i] ));
                     }
